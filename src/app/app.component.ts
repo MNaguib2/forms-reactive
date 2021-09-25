@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
          (value) => console.log("this is Data Entre ",value)
      );
     this.signupForm.statusChanges.subscribe(
-      (status) => console.log("this is Statue Form "+status)
+      (status) => console.log("this is Statue Form "+ status)
     );
 
     this.signupForm.setValue({
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 
   }
   onSubmit(){
-    console.log(this.signupForm);
+    console.log(this.signupForm.value.userData.username);
     this.signupForm.reset();
   }
 
@@ -53,7 +53,10 @@ export class AppComponent implements OnInit {
     const control = new FormControl(null, Validators.required);
     (<FormArray>this.signupForm.get('hobbies')).push(control);
   }
+
+
   forbiddenUsernames = ['Chris', 'Anna'];
+
   forbiddenNames(control: FormControl): {[s: string]: boolean} {
     if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
       return {'nameIsForbidden': true};

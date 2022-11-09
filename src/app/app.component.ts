@@ -11,6 +11,10 @@ export class AppComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm: FormGroup;
 
+  constructor(){
+    //console.log('test');
+  }
+
   ngOnInit(){
     this.signupForm = new FormGroup({
       'userData': new FormGroup({
@@ -27,14 +31,14 @@ export class AppComponent implements OnInit {
       (status) => console.log("this is Statue Form "+ status)
     );
 
-    this.signupForm.setValue({
-      'userData': {
-        'username': 'Max',
-        'email': 'max@test.com'
-      },
-      'gender': 'male',
-      'hobbies': []
-    });
+    // this.signupForm.setValue({
+    //   'userData': {
+    //     'username': 'Max',
+    //     'email': 'max@test.com'
+    //   },
+    //   'gender': 'male',
+    //   'hobbies': []
+    // });
 
 
     this.signupForm.patchValue({
